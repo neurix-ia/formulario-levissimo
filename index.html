@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Levíssima — Formulário de Base de Conhecimento | Agente SDR de Pré-Atendimento</title>
+<style>
+  :root{
+    --crust:#6b4423;
+    --crust-light:#a06a3a;
+    --wheat:#e8c77a;
+    --cream:#faf3e6;
+    --line:#e2d2b0;
+    --ink:#2e2013;
+    --green:#2f6b3f;
+    --red:#a33a2c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:'Segoe UI', Arial, sans-serif;
+    background:#fffaf0;
+    color:var(--ink);
+    margin:0;
+    padding:0;
+    line-height:1.55;
+  }
+  .page{
+    max-width:900px;
+    margin:0 auto;
+    padding:40px 48px 80px;
+  }
+  header.hero{
+    background:linear-gradient(135deg,var(--crust) 0%,var(--crust-light) 100%);
+    color:#fff;
+    padding:44px 48px;
+    border-radius:0 0 18px 18px;
+    margin-bottom:36px;
+  }
+  header.hero .tag{
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:.85;
+    margin-bottom:8px;
+  }
+  header.hero h1{
+    margin:0 0 10px;
+    font-size:28px;
+  }
+  header.hero p{
+    margin:0;
+    opacity:.92;
+    max-width:640px;
+    font-size:15px;
+  }
+  .callout{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:5px solid var(--wheat);
+    border-radius:8px;
+    padding:18px 22px;
+    margin:0 0 32px;
+    font-size:14px;
+  }
+  .callout b{color:var(--crust);}
+  section{
+    margin-bottom:38px;
+  }
+  section h2{
+    font-size:19px;
+    color:var(--crust);
+    border-bottom:2px solid var(--line);
+    padding-bottom:8px;
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  section h2 .num{
+    background:var(--crust);
+    color:#fff;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    flex-shrink:0;
+  }
+  section > p.hint{
+    font-size:13.5px;
+    color:#7a5a30;
+    margin:-6px 0 16px;
+  }
+  .field{
+    margin-bottom:16px;
+  }
+  .field label{
+    display:block;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--crust-light);
+    margin-bottom:5px;
+  }
+  input[type=text], input[type=email], input[type=tel], textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:14px;
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:9px 11px;
+    background:#fff;
+    resize:vertical;
+  }
+  input:focus, textarea:focus{
+    outline:none;
+    border-color:var(--crust-light);
+    box-shadow:0 0 0 3px rgba(160,106,58,.15);
+  }
+  textarea{min-height:64px;}
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 24px;
+  }
+  .box{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px 18px;
+  }
+  .box h3{
+    margin:0 0 8px;
+    font-size:14.5px;
+    color:var(--crust);
+  }
+  .note{
+    font-size:12.5px;
+    color:#9a7d4f;
+    font-style:italic;
+    margin-top:-8px;
+    margin-bottom:14px;
+  }
+  .submit-row{
+    text-align:center;
+    margin-top:44px;
+  }
+  button#submitBtn{
+    background:var(--crust);
+    color:#fff;
+    border:none;
+    padding:14px 38px;
+    font-size:15px;
+    font-weight:600;
+    border-radius:8px;
+    cursor:pointer;
+    transition:background .15s;
+  }
+  button#submitBtn:hover{background:var(--crust-light);}
+  button#submitBtn:disabled{opacity:.6;cursor:not-allowed;}
+  #formStatus{
+    margin-top:16px;
+    font-size:14px;
+    font-weight:600;
+    min-height:20px;
+  }
+  #formStatus.success{color:var(--green);}
+  #formStatus.error{color:var(--red);}
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:#a08e7a;
+    margin-top:50px;
+    border-top:1px solid var(--line);
+    padding-top:18px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero">
+    <div class="tag">Neurix IA · Módulo 01 · Agente SDR de Pré-Atendimento</div>
+    <h1>Formulário de Base de Conhecimento — Levíssima</h1>
+    <p>Pães de fermentação natural · Preencha os campos abaixo com as informações do negócio. Suas respostas são enviadas diretamente para a Neurix e usadas para configurar o agente de pré-atendimento no WhatsApp.</p>
+  </header>
+
+  <div class="callout">
+    <b>Como preencher:</b> não precisa ser formal — escreva como se estivesse explicando para um novo vendedor. Pode deixar em branco o que ainda não estiver definido. Ao final, clique em "Enviar respostas".
+  </div>
+
+  <form id="kbForm">
+
+  <section>
+    <h2><span class="num">•</span> Preenchido por</h2>
+    <div class="two-col">
+      <div class="field"><label>Seu nome</label><input type="text" name="respondent_name"></div>
+      <div class="field"><label>Seu WhatsApp</label><input type="tel" name="respondent_whatsapp"></div>
+      <div class="field"><label>Seu e-mail</label><input type="email" name="respondent_email"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">1</span> Identificação e Canais</h2>
+    <div class="two-col">
+      <div class="field"><label>Nome do negócio</label><input type="text" name="nome_negocio"></div>
+      <div class="field"><label>WhatsApp oficial do agente</label><input type="text" name="whatsapp_oficial"></div>
+      <div class="field"><label>Instagram / link do vídeo institucional da produção</label><input type="text" name="redes_sociais"></div>
+      <div class="field"><label>Região coberta pela entrega</label><input type="text" name="area_entrega"></div>
+    </div>
+    <div class="field"><label>Pontos de venda na rua (locais, dias e horários que os vendedores ficam)</label><textarea name="pontos_venda"></textarea></div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> Produtos</h2>
+    <div class="field"><label>Pães e produtos oferecidos (tipos, tamanhos, sabores)</label><textarea name="produtos_paes"></textarea></div>
+    <div class="two-col">
+      <div class="field"><label>Preços (por produto/tamanho)</label><input type="text" name="precos"></div>
+      <div class="field"><label>Varia por dia da semana? Alguma edição especial?</label><input type="text" name="variedade_dia"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> Cadastro no Ponto de Venda</h2>
+    <p class="hint">Como funciona a venda na rua: o vendedor cadastra o cliente na hora da compra, antes do pagamento.</p>
+    <div class="field"><label>O que deve ser registrado no momento da venda (WhatsApp do cliente, foto da placa, ponto de venda, etc.)</label><textarea name="dados_cadastro_venda"></textarea></div>
+    <div class="field"><label>Vendedores e seus pontos de venda (se o agente precisar saber quem atende onde)</label><textarea name="vendedores_pontos"></textarea></div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> Pagamento (Pix)</h2>
+    <div class="two-col">
+      <div class="field"><label>Chave Pix para cobrança</label><input type="text" name="chave_pix"></div>
+      <div class="field"><label>Prazo esperado de pagamento após a venda</label><input type="text" name="prazo_pagamento"></div>
+    </div>
+    <div class="field"><label>Como deve ser o texto de cobrança enviado ao cliente</label><textarea name="texto_cobranca_pix"></textarea></div>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span> Mensagens Padrão</h2>
+    <p class="hint">O agente distingue cliente novo de cliente recorrente — a mensagem muda conforme o histórico.</p>
+    <div class="field"><label>Mensagem para 1ª compra (agradecimento + Pix + apresentação da marca/produção)</label><textarea name="mensagem_boas_vindas_1a_compra"></textarea></div>
+    <div class="field"><label>Mensagem para recompra (cliente que já comprou antes)</label><textarea name="mensagem_agradecimento_recompra"></textarea></div>
+    <div class="field"><label>Link do vídeo/Instagram da produção (para enviar na 1ª compra)</label><input type="text" name="link_video_instagram"></div>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span> Retirada ou Entrega</h2>
+    <div class="field"><label>Como o agente deve perguntar: retirar em um ponto de venda ou receber entrega?</label><textarea name="opcoes_retirada_entrega"></textarea></div>
+    <div class="two-col">
+      <div class="field"><label>Prazo de entrega (ex.: dia seguinte)</label><input type="text" name="prazo_entrega"></div>
+      <div class="field"><label>Tem custo de entrega? (pode deixar "a definir")</label><input type="text" name="custo_entrega"></div>
+    </div>
+    <div class="field"><label>Pontos/bairros de entrega disponíveis (para indicar o mais próximo do cliente)</label><textarea name="pontos_entrega_enderecos"></textarea></div>
+  </section>
+
+  <section>
+    <h2><span class="num">7</span> Reengajamento da Base (a cada 30 dias)</h2>
+    <p class="hint">Mensagem periódica para reativar clientes que já compraram, mantendo a marca presente.</p>
+    <div class="field"><label>Mensagem de reengajamento (ex.: "e aí, como está o pãozinho? bora um com café?")</label><textarea name="mensagem_reengajamento"></textarea></div>
+    <div class="field"><label>Alguma oferta ou combo para incentivar a recompra nesse contato?</label><input type="text" name="oferta_reengajamento"></div>
+  </section>
+
+  <section>
+    <h2><span class="num">8</span> Canal de Condomínios <span class="note" style="font-size:12px;font-weight:400;">(planejamento futuro)</span></h2>
+    <div class="field"><label>Notas sobre o plano de vendas por grupo/condomínio (não é escopo deste módulo, só para registro)</label><textarea name="interesse_condominios"></textarea></div>
+  </section>
+
+  <section>
+    <h2><span class="num">9</span> Tom de Voz e Diretrizes</h2>
+    <div class="two-col">
+      <div class="field"><label>Como a marca gostaria de soar (descontraído, caseiro, direto...)</label><input type="text" name="tom_voz"></div>
+      <div class="field"><label>Expressões ou termos que vocês sempre usam</label><input type="text" name="termos_proprios"></div>
+      <div class="field"><label>O que o agente nunca deve prometer ou afirmar</label><textarea name="nunca_prometer"></textarea></div>
+      <div class="field"><label>Assinatura / despedida padrão</label><input type="text" name="assinatura_padrao"></div>
+    </div>
+  </section>
+
+  <div class="submit-row">
+    <button type="submit" id="submitBtn">Enviar respostas</button>
+    <div id="formStatus"></div>
+  </div>
+
+  </form>
+
+  <footer>
+    Neurix IA · Formulário de levantamento — Módulo 01 (Agente SDR de Pré-Atendimento) · Levíssima
+  </footer>
+
+</div>
+
+<script>
+  var WEBHOOK_URL = 'https://n8n.wbtech.dev/webhook/levissima-kb-sdr';
+  var form = document.getElementById('kbForm');
+  var btn = document.getElementById('submitBtn');
+  var statusEl = document.getElementById('formStatus');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    statusEl.textContent = '';
+    statusEl.className = '';
+
+    var data = {};
+    new FormData(form).forEach(function (value, key) { data[key] = value; });
+
+    fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (res) {
+        if (!res.ok) { throw new Error('Falha no envio'); }
+        return res.json().catch(function () { return {}; });
+      })
+      .then(function () {
+        statusEl.textContent = 'Recebido! Obrigado pelo preenchimento — em breve entraremos em contato.';
+        statusEl.className = 'success';
+        form.reset();
+      })
+      .catch(function () {
+        statusEl.textContent = 'Não foi possível enviar agora. Tente novamente em instantes ou nos envie por WhatsApp.';
+        statusEl.className = 'error';
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Enviar respostas';
+      });
+  });
+</script>
+
+</body>
+</html>
